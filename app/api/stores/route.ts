@@ -16,7 +16,6 @@ export async function POST (
         }
 
         if (!name) {
-            // If name doesn't exist
             return new NextResponse("Name is required", { status: 400 });
         }
 
