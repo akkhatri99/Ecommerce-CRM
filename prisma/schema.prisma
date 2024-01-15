@@ -123,7 +123,6 @@ model Order {
   storeId     String
   store       Store     @relation ("StoreToOrder", fields: [storeId], references: [id])
   orderItems  OrderItem[]
-  orderItems  OrderItem[]
   isPaid      Boolean   @default(false)
   phone       String    @default("")
   address     String    @default("")
@@ -138,7 +137,7 @@ model OrderItem {
   orderId     String
   order       Order     @relation(fields: [orderId] ,references: [id])
   productId   String
-  product     Product   @references(fields: [productId], references: [id])
+  product     Product   @relation(fields: [productId], references: [id])
 
   @@index([orderId])
   @@index ([productId])
